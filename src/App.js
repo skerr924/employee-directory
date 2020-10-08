@@ -2,14 +2,16 @@ import React from "react";
 import Jumbotron from "./components/Jumbotron";
 import Wrapper from "./components/Wrapper";
 import Footer from "./components/Footer";
+import TableHead from "./components/TableHead";
 
 function App() {
   return (
     <div>
       <Jumbotron />
       <Wrapper>
-        {/* <Header />
-          <Table /> table will contain table headers and table body  */}
+        <table className="table">
+          <TableHead />
+        </table>
       </Wrapper>
       <Footer />
     </div>
