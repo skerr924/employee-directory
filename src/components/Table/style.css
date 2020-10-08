@@ -1,3 +1,7 @@
 table {
   text-align: center;
 }
+
+.nameButton:hover {
+  font-weight: 5px;
+}

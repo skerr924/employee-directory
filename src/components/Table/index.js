@@ -25,9 +25,9 @@ class Table extends Component {
   }
 
   sortName = () => {
-    let sortedE = [];
+    let sortedList = [];
     if (this.state.alphabetical) {
-      sortedE = this.props.empList.sort((a, b) => {
+      sortedList = this.props.empList.sort((a, b) => {
         var nameA = a.name.last.toLowerCase(),
           nameB = b.name.last.toLowerCase();
         if (nameA < nameB) return -1;
@@ -35,17 +35,19 @@ class Table extends Component {
         return 0;
       });
     } else {
-      sortedE = this.props.empList.sort((a, b) => {
+      sortedList = this.props.empList.sort((a, b) => {
         var nameA = a.name.last.toLowerCase(),
           nameB = b.name.last.toLowerCase();
-        if (nameA > nameB) return -1;
-        if (nameA < nameB) return 1;
-        return 0;
+        if (nameA > nameB) {
+          return -1;
+        } else if (nameA < nameB) {
+          return 1;
+        } else return 0;
       });
     }
     this.setState({
       alphabetical: true,
-      sortedEmployees: sortedE,
+      sortedEmployees: sortedList,
     });
   };
 
@@ -54,8 +56,8 @@ class Table extends Component {
       <table>
         <thead>
           <th>Photo</th>
-          <th>
-            <p onClick={this.sortName}>Name</p>
+          <th class="nameButton" onClick={this.sortName}>
+            Name
           </th>
           <th>Phone</th>
           <th>Gender</th>
