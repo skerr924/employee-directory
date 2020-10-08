@@ -4,8 +4,8 @@ import "../Table/style.css";
 
 class Table extends Component {
   state = {
-    alphabetical: false,
-    ascending: false,
+    alpha: true,
+    ascending: true,
     sortedEmployees: [],
     employees: [],
   };
@@ -26,10 +26,10 @@ class Table extends Component {
 
   sortName = () => {
     let sortedList = [];
-    if (this.state.alphabetical) {
+    if (this.state.alpha) {
       sortedList = this.props.empList.sort((a, b) => {
-        var nameA = a.name.last.toLowerCase(),
-          nameB = b.name.last.toLowerCase();
+        var nameA = a.name.last.toLowerCase();
+        var nameB = b.name.last.toLowerCase();
         if (nameA < nameB) return -1;
         if (nameA > nameB) return 1;
         return 0;
@@ -46,7 +46,7 @@ class Table extends Component {
       });
     }
     this.setState({
-      alphabetical: true,
+      alpha: true,
       sortedEmployees: sortedList,
     });
   };

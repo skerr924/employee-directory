@@ -36,7 +36,7 @@ class DataArea extends Component {
       <div>
         <form className="form">
           <input
-            class="mainSearch"
+            className="mainSearch"
             value={this.state.searchValue}
             name="searchValue"
             onChange={(event) => this.handleInputChange(event)}
