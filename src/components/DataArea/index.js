@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Table from "../Table";
+import "../DataArea/style.css";
 
 class DataArea extends Component {
   state = {
@@ -35,11 +36,12 @@ class DataArea extends Component {
       <div>
         <form className="form">
           <input
+            class="mainSearch"
             value={this.state.searchValue}
             name="searchValue"
             onChange={(event) => this.handleInputChange(event)}
             type="text"
-            placeholder="Search"
+            placeholder="Search for an employee"
           />
         </form>
         {this.state.employeesMatchSearch.length > 0 && (
