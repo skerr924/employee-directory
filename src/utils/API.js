@@ -5,7 +5,7 @@ import axios from "axios";
 export default {
   fetchUsers: function () {
     return axios.get(
-      "https://randomuser.me/api/?results=50&nat=us&inc=name,email,picture"
+      "https://randomuser.me/api/?results=50&nat=us&inc=name,email,gender,phone,picture"
     );
   },
 };

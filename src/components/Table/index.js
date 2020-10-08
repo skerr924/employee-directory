@@ -4,18 +4,16 @@ import "../Table/style.css";
 
 class Table extends Component {
   state = {
-    alphabetical: true,
-    ascending: true,
+    alphabetical: false,
+    ascending: false,
     sortedEmployees: [],
     employees: [],
   };
 
   componentDidMount() {
-    if (this.state.sortedEmployees.length < 1) {
-      this.setState({
-        sortedEmployees: this.props.empList,
-      });
-    }
+    this.setState({
+      sortedEmployees: this.props.empList,
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -27,9 +25,9 @@ class Table extends Component {
   }
 
   sortName = () => {
-    let sortEmp = [];
+    let sortedE = [];
     if (this.state.alphabetical) {
-      sortEmp = this.props.empList.sort((a, b) => {
+      sortedE = this.props.empList.sort((a, b) => {
         var nameA = a.name.last.toLowerCase(),
           nameB = b.name.last.toLowerCase();
         if (nameA < nameB) return -1;
@@ -37,7 +35,7 @@ class Table extends Component {
         return 0;
       });
     } else {
-      sortEmp = this.props.empList.sort((a, b) => {
+      sortedE = this.props.empList.sort((a, b) => {
         var nameA = a.name.last.toLowerCase(),
           nameB = b.name.last.toLowerCase();
         if (nameA > nameB) return -1;
@@ -46,8 +44,8 @@ class Table extends Component {
       });
     }
     this.setState({
-      alphabetical: !this.state.alphabetical,
-      sortedEmployees: sortEmp,
+      alphabetical: true,
+      sortedEmployees: sortedE,
     });
   };
 
@@ -57,20 +55,22 @@ class Table extends Component {
         <thead>
           <th>Photo</th>
           <th>
-            <p onClick={this.sortName} className="name">
-              Name
-            </p>
+            <p onClick={this.sortName}>Name</p>
           </th>
+          <th>Phone</th>
+          <th>Gender</th>
           <th>Email</th>
         </thead>
         <tbody>
           {this.state.sortedEmployees.length > 0 &&
-            this.state.sortedEmployees.map((item, index) => (
+            this.state.sortedEmployees.map((item) => (
               <EmployeeRow
                 image={item.picture.large}
                 first={item.name.first}
                 last={item.name.last}
                 email={item.email}
+                phone={item.phone}
+                gender={item.gender}
               />
             ))}
         </tbody>

@@ -19,8 +19,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Jumbotron />
         <Wrapper>
+          <Jumbotron />
           {this.state.employees.length > 0 && (
             <DataArea employees={this.state.employees} />
           )}

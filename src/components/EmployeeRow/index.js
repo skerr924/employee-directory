@@ -11,6 +11,8 @@ function EmployeeRow(props) {
         {" "}
         {props.first} {props.last}{" "}
       </td>
+      <td>{props.phone}</td>
+      <td>{props.gender}</td>
       <td>{props.email}</td>
     </tr>
   );
