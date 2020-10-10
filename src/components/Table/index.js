@@ -4,7 +4,8 @@ import "../Table/style.css";
 
 class Table extends Component {
   state = {
-    alpha: true,
+    alpha: false,
+    revAlpha: false,
     ascending: true,
     sortedEmployees: [],
     employees: [],
@@ -26,7 +27,7 @@ class Table extends Component {
 
   sortName = () => {
     let sortedList = [];
-    if (this.state.alpha) {
+    if (!this.state.alpha) {
       sortedList = this.props.empList.sort((a, b) => {
         var nameA = a.name.last.toLowerCase();
         var nameB = b.name.last.toLowerCase();
@@ -34,21 +35,25 @@ class Table extends Component {
         if (nameA > nameB) return 1;
         return 0;
       });
-    } else {
+      this.setState({
+        alpha: true,
+        revAlpha: false,
+        sortedEmployees: sortedList,
+      });
+    } else if (this.state.alpha) {
       sortedList = this.props.empList.sort((a, b) => {
-        var nameA = a.name.last.toLowerCase(),
-          nameB = b.name.last.toLowerCase();
-        if (nameA > nameB) {
-          return -1;
-        } else if (nameA < nameB) {
-          return 1;
-        } else return 0;
+        var nameA = a.name.last.toLowerCase();
+        var nameB = b.name.last.toLowerCase();
+        if (nameA > nameB) return -1;
+        if (nameA < nameB) return 1;
+        return 0;
+      });
+      this.setState({
+        alpha: false,
+        revAlpha: true,
+        sortedEmployees: sortedList,
       });
     }
-    this.setState({
-      alpha: true,
-      sortedEmployees: sortedList,
-    });
   };
 
   render() {
