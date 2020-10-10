@@ -4,9 +4,6 @@ import "../Table/style.css";
 
 class Table extends Component {
   state = {
-    alpha: false,
-    revAlpha: false,
-    ascending: true,
     sortedEmployees: [],
     employees: [],
   };
@@ -25,9 +22,8 @@ class Table extends Component {
     }
   }
 
-  sortNameAZ = () => {
+  sortLastNameAZ = () => {
     let sortedList = [];
-    // if (!this.state.alpha) {
     sortedList = this.props.empList.sort((a, b) => {
       var nameA = a.name.last.toLowerCase();
       var nameB = b.name.last.toLowerCase();
@@ -36,15 +32,12 @@ class Table extends Component {
       return 0;
     });
     this.setState({
-      alpha: true,
-      revAlpha: false,
       sortedEmployees: sortedList,
     });
   };
 
-  sortNameZA = () => {
+  sortLastNameZA = () => {
     let sortedList = [];
-    // if (!this.state.alpha) {
     sortedList = this.props.empList.sort((a, b) => {
       var nameA = a.name.last.toLowerCase();
       var nameB = b.name.last.toLowerCase();
@@ -53,8 +46,34 @@ class Table extends Component {
       return 0;
     });
     this.setState({
-      alpha: false,
-      revAlpha: true,
+      sortedEmployees: sortedList,
+    });
+  };
+
+  sortFirstNameAZ = () => {
+    let sortedList = [];
+    sortedList = this.props.empList.sort((a, b) => {
+      var nameA = a.name.first.toLowerCase();
+      var nameB = b.name.first.toLowerCase();
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    });
+    this.setState({
+      sortedEmployees: sortedList,
+    });
+  };
+
+  sortFirstNameZA = () => {
+    let sortedList = [];
+    sortedList = this.props.empList.sort((a, b) => {
+      var nameA = a.name.first.toLowerCase();
+      var nameB = b.name.first.toLowerCase();
+      if (nameA > nameB) return -1;
+      if (nameA < nameB) return 1;
+      return 0;
+    });
+    this.setState({
       sortedEmployees: sortedList,
     });
   };
@@ -65,11 +84,32 @@ class Table extends Component {
         <thead>
           <th>Photo</th>
           <th class="nameButton">
-            <button class="arrowBtn btn btn-light" onClick={this.sortNameAZ}>
+            <button
+              class="arrowBtn btn btn-light"
+              onClick={this.sortFirstNameAZ}
+            >
               ↓
             </button>
-            Name
-            <button class="arrowBtn btn btn-light" onClick={this.sortNameZA}>
+            First Name
+            <button
+              class="arrowBtn btn btn-light"
+              onClick={this.sortFirstNameZA}
+            >
+              ↑
+            </button>
+          </th>
+          <th class="nameButton">
+            <button
+              class="arrowBtn btn btn-light"
+              onClick={this.sortLastNameAZ}
+            >
+              ↓
+            </button>
+            Last Name
+            <button
+              class="arrowBtn btn btn-light"
+              onClick={this.sortLastNameZA}
+            >
               ↑
             </button>
           </th>

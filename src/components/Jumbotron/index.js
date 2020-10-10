@@ -6,7 +6,8 @@ function Jumbotron() {
     <div className="jumbotron bg-dark text-white">
       <h1 className="display-4">Employee Directory</h1>
       <p className="lead">
-        Search below or click on "Name" to search alphabetically by name.
+        Search by name, gender, or email in the search bar below, or sort by
+        first or last name using the arrow keys.
       </p>
     </div>
   );
