@@ -5,3 +5,7 @@ table {
 .nameButton:hover {
   font-weight: 5px;
 }
+
+.arrowBtn {
+  margin: 10px;
+}
