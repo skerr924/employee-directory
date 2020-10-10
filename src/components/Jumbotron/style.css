@@ -1,7 +1,7 @@
 .jumbotron {
   opacity: 1;
   color: slategrey;
-  height: 300px;
+  padding: 0px;
 }
 
 h1,
