@@ -6,6 +6,8 @@
 
 This React application pulls in random "employee" data from an API, and dynamically displays those employees' information on the page. It allows for the user to search employees by name, gender, or email address, as well as to sort alphabetically and reverse-alphabetically by first or last name.
 
+The deployed application can be found here: [Employee Directory](https://skerr924.github.io/employee-directory/)
+
 # Table of Contents
 
 - [Description](#description)
