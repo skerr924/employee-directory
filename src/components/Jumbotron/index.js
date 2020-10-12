@@ -9,6 +9,9 @@ function Jumbotron() {
         Search by name, gender, or email in the search bar below, or sort by
         first or last name using the arrow keys.
       </p>
+      <p className="small">
+        Hint: If you don't see your employees, try refreshing the page!{" "}
+      </p>
     </div>
   );
 }
